@@ -1,0 +1,53 @@
+PASTE EVERYTHING FROM A STEP AT ONCE
+
+
+#step 1 delete mangodb
+sudo systemctl stop mongod
+
+sudo apt-get purge mongodb-org*
+
+sudo rm -rf /var/lib/mongodb/var/log/mongodb
+
+
+# step 2 installing mango db 4.4
+sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates wget curi
+
+echo "deb http://security.ubuntu.com/ubuntu focal-security main |
+
+sudo tee /etc/apt/sourc
+
+sudo apt update
+
+wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.
+
+sudo dpkg -1 libssl1.1_1.1.1f-1ubuntu2_amd64.deb
+
+wget -q0 https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+
+echo "deb [arch-a64,ara04] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 mul
+
+| sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.1ist
+
+sudo apt update
+
+sudo apt install -y mongodb-org-4.4. mongodb-org-server=4.4.
+
+mongodb-org-tools-4.4."
+
+
+#step 3
+sudo useradd - mongodb || true
+
+sudo chown -R mongodb:mongodb/var/lib/mongodb/var/log/mongodb
+
+sudo chmod 700/var/lib/mongodb/var/log/mongodb
+
+sudo systemctl daemon-reload
+
+sudo systemctl enable mongod
+
+sudo systemctl start mongod
+
+sudo systemctl status mongod
+
+sudo journalctl -u mongod-b
