@@ -8,8 +8,13 @@ sudo apt-get purge mongodb-org*
 
 sudo rm -rf /var/lib/mongodb/var/log/mongodb
 
+# step 2 install libssl 1.1
+wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl1.1/libssl1.1_1.1.1f-1ubuntu2.19_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.19_amd64.deb
 
-# step 2 installing mango db 4.4
+
+
+# step 3 installing mango db 4.4
 sudo apt install -y dirmngr gnupg apt-transport-https ca-certificates wget curi
 
 echo "deb http://security.ubuntu.com/ubuntu focal-security main |
@@ -35,7 +40,7 @@ sudo apt install -y mongodb-org-4.4. mongodb-org-server=4.4.
 mongodb-org-tools-4.4."
 
 
-#step 3
+#step 4
 sudo useradd - mongodb || true
 
 sudo chown -R mongodb:mongodb/var/lib/mongodb/var/log/mongodb
